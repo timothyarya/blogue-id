@@ -6,9 +6,7 @@ import TodoList from "./components/TodoList";
 const dataFromLocalStorage = () => JSON.parse(localStorage.getItem("todo")) || [];
 
 const Dashboard = () => {
-    const [todo, setTodo] = useState(dataFromLocalStorage());
-
-
+    const [todo, setTodo] = useState(dataFromLocalStorage);
 
     useEffect(() => {
         let updateTodoOnLocal = JSON.stringify(todo);
