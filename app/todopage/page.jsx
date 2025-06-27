@@ -56,7 +56,7 @@ const Dashboard = () => {
     return (
         <>
             <div className="flex flex-col mt-30 text-center justify-center border-2 border-white w-full p-10 gap-5">
-                <h1 className="font-mono italic text-gray-300 opacity-50">Saved on Browser Local Storage</h1>
+                <h1 className="font-mono italic text-gray-300 opacity-50">-- Saved on Browser Local Storage --</h1>
                 <TodoForm addTodo={addTodo} deleteAllTodo={deleteALLTODO}/>
                 <TodoList todoList={todo} checkComplete={checkComplete} deleteTodo={deleteTodo}/>
             </div>
