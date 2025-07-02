@@ -6,15 +6,18 @@ import TodoList from "./components/TodoList";
 const dataFromLocalStorage = () => JSON.parse(localStorage.getItem("todo")) || [];
 
 const Dashboard = () => {
+    /* todo is array of object */ 
     const [todo, setTodo] = useState(dataFromLocalStorage);
 
+
+    // update the localstorage using the newest todo
     useEffect(() => {
         let updateTodoOnLocal = JSON.stringify(todo);
         localStorage.setItem("todo", updateTodoOnLocal);
     }, [todo]);
 
 
-
+    // adding new todo items
     const addTodo = (textFromInput) => {
         const newTodo = {
             id: todo.length + 1,
@@ -25,26 +28,26 @@ const Dashboard = () => {
     }
 
 
-
-    const checkComplete = (id) => {
+    // check if the todo is completed
+    const checkComplete = (eachTodoId) => {
         setTodo(
-            todo.map((item) => {
-                if (item.id === id) item.isCompleted = !item.isCompleted;
-                return item;
+            todo.map((todoCheck) => {
+                if (todoCheck.id === eachTodoId) todoCheck.isCompleted = !todoCheck.isCompleted;
+                return todoCheck;
             })
         );
     }
 
 
-
-    const deleteTodo = (id) => {
+    // delete todo
+    const deleteTodo = (eachTodoId) => {
         setTodo(
-            todo.filter((item) => item.id !== id)
+            todo.filter((todoDelete) => todoDelete.id !== eachTodoId)
         );
     }
 
     
-
+    // clear all todo
     const deleteALLTODO = () => {
         setTodo([]);
     }
